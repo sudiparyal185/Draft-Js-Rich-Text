@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Editor } from 'draft-js';
-import { Box } from '@mui/material';
 import { useEditorState } from '../../hooks';
 import { Toolbar } from './Toolbar';
 import { styled, Paper } from '@mui/material';
