@@ -1,18 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Editor, EditorState } from 'draft-js';
+import React, { useEffect } from 'react';
+import { Editor } from 'draft-js';
 import { Box } from '@mui/material';
+import { useEditorState } from '../../hooks';
 
 const RichEditor = () => {
-  const editorRef = useRef<any>(null);
-  const [editorState, setEditorState] = useState(() =>
-    EditorState.createEmpty(),
-  );
-  const focusEditor = () => {
-    editorRef?.current?.focus();
-  };
+  const { editorState, setEditorState, editorRef, focusEditor } =
+    useEditorState();
+
   useEffect(() => {
     focusEditor();
-  }, []);
+  }, [focusEditor]);
   return (
     <Box
       ref={editorRef}
