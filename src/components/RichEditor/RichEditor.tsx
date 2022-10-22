@@ -28,12 +28,18 @@ const StyledEditorContainer = styled(Paper)`
 `;
 
 const RichEditor = () => {
-  const { editorState, setEditorState, editorRef, focusEditor } =
-    useEditorState();
+  const {
+    editorState,
+    setEditorState,
+    editorRef,
+    focusEditor,
+    handleToolbarStyles,
+  } = useEditorState();
 
   useEffect(() => {
     focusEditor();
   }, [focusEditor]);
+
   return (
     <StyledEditorContainer
       ref={editorRef}
@@ -50,7 +56,7 @@ const RichEditor = () => {
         onChange={setEditorState}
         spellCheck={true}
       />
-      <Toolbar />
+      <Toolbar handleToolbarStyles={handleToolbarStyles} />
     </StyledEditorContainer>
   );
 };
